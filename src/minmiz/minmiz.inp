@@ -1,0 +1,118 @@
+! ==========================================
+! Read in topology and parameter files
+! ====================================
+
+BOMLEV -2
+
+open read unit 1 card name "/home/cyppsp/project_bayesian/BAL/dependencies//top_all27_prot_na_drv.v4.1.inp"
+read rtf card unit 1
+close unit 1
+
+
+open read unit 1 card name "/home/cyppsp/project_bayesian/BAL/dependencies//par_all27_prot_na_drv.v4.1.inp"
+read para card unit 1
+close unit 1
+
+open read unit 1 card name A.SEQ
+read sequence unit 1 card
+close unit 1
+generate A first NTER last CTER setup
+stream "A_FIXRES.INP"
+
+open read unit 1 card name B.SEQ
+read sequence unit 1 card
+close unit 1
+generate B first NTER last CTER setup
+stream "B_FIXRES.INP"
+
+open read unit 1 card name "complex.crd"
+read coor card unit 1
+close unit 1
+
+
+ic fill preserve
+ic param
+ic build
+
+
+coor copy comp
+
+define REC sele segid A end
+define LIG sele segid B end
+
+define INT sele .byres. LIG .around. 10 end
+define RINT sele INT .and. REC end
+
+
+
+! calculate starting energy
+update -
+energy elec atom rdiel switch eps 4.0 e14fac 1.0 -
+                cutnb 14. ctonnb 10. ctofnb 12. -
+                nbxmod 5 vswitch wmin 1.5 vatom vdistance
+
+
+mini sd nstep 50
+
+mini sd nstep 100
+
+if ?vdw GT -200 then
+mini sd nstep 50
+endif
+
+if ?vdw GT -200 then
+mini sd nstep 50
+endif
+
+if ?vdw GT -200 then
+mini sd nstep 50
+endif
+
+if ?vdw GT -200 then
+mini sd nstep 50
+endif
+
+mini abnr nstep 100
+
+!cons fix sele none end
+
+skip none
+
+
+coor orie rms sele LIG end
+inte sele REC end sele LIG end
+scalar wmain = charge
+
+
+open write unit 1 card name "receptor.crd"
+write coor card unit 1 sele REC end
+close unit 1
+
+open write unit 1 card name "ligand.crd"
+write coor card unit 1 sele LIG end
+close unit 1
+
+prnlev 0
+stream /home/cyppsp/project_bayesian/BAL/dependencies//radius_gbsw.str
+prnlev 5
+scalar wmain statistics select .not. type H* end
+GBSW sw 0.3 sgamma 0.03 dgp 1.5 GBenergy
+Energy
+calc cinternal ( ?bond + ?angl + ?dihe + ?impr + ?urey )
+calc bond ?bond
+calc angl ?angl
+calc dihe ?dihe
+calc impr ?impr
+calc urey ?urey
+calc cvdw ?vdw
+calc elec ?gben
+coor surf acce rprobe 1.4 sele all END
+calc csasa ( 0.005 * ?area + 0.860)
+
+open write unit 10 card name com_energy.dat
+write title unit 10
+* @bond @angl @dihe @impr @urey @cvdw @csasa @elec
+*
+close unit 10
+
+

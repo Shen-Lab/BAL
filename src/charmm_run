@@ -1,0 +1,48 @@
+# 1:current_directory  2: protein_name 3: protein_path 4:pdb_crd.prl 5:charmm_setup 6:charmm.exe
+
+
+
+cd $1/prepocess/
+
+cat $3/$2_r_u.pdb $3/$2_l_u.pdb > complex.before.pdb
+sed 's/HIS/HSE/g' complex.before.pdb | sed 's/ILE CD1/ILE CD /g' > complex.pdb
+rm complex.before.pdb
+
+$4  complex.pdb complex.crd
+
+
+$5 complex.crd
+$6 <hbuild.inp> charmm.out
+
+$7  receptor.crd receptor.pdb 
+$7  ligand.crd   ligand.pdb
+cp  receptor.pdb $2_r_u.pdb
+cp  ligand.pdb  $2_l_u.pdb
+
+#---------------------------------do unbound energy calculation
+
+cp $3/$2_r_u.pdb ./un_receptor.pdb
+cp $3/$2_l_u.pdb ./un_ligand.pdb
+
+sed -i 's/HIS/HSE/g' un_receptor.pdb
+sed -i 's/ILE CD1/ILE CD /g' un_receptor.pdb
+sed -i 's/HIS/HSE/g' un_ligand.pdb
+sed -i 's/ILE CD1/ILE CD /g' un_ligand.pdb
+
+
+$4 un_receptor.pdb un_receptor.crd
+$4 un_ligand.pdb   un_ligand.crd
+rm un_receptor.pdb un_ligand.pdb
+
+$5 un_receptor.crd
+$5 un_ligand.crd
+
+$6 <urec.inp> charmm.outr
+$6 <ulig.inp> charmm.outl
+
+#---------------------------------------prepare charmmsetup for future samples
+
+
+cp complex.crd $1/minmiz/
+cd $1/minmiz/
+$5 complex.crd

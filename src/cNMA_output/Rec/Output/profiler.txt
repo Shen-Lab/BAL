@@ -1,0 +1,25 @@
+Mon Jan 28 18:09:10 2019    /home/cyppsp/project_bayesian/BAL/src//cNMA_output/Rec/Output/profiler.pro
+
+         3090890 function calls (3070961 primitive calls) in 6.774 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1016 to 15 due to restriction <15>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    6.774    6.774 /home/cyppsp/project_bayesian/BAL/src//cNMA//Software/NMAUnified.py:852(mainCalculation)
+        1    0.000    0.000    3.427    3.427 /home/cyppsp/project_bayesian/BAL/src//cNMA//Software/NMAUnified.py:313(setupNMA)
+        1    0.003    0.003    3.299    3.299 /home/cyppsp/project_bayesian/BAL/src/cNMA/Software/ANMs.py:144(calcANMsUnified)
+    10727    0.058    0.000    1.923    0.000 /home/cyppsp/anaconda2/lib/python2.7/site-packages/prody/atomic/pointer.py:46(__eq__)
+        2    0.005    0.002    1.917    0.958 /home/cyppsp/project_bayesian/BAL/src/cNMA/Software/ANMs.py:1360(calcCustomH_ANew)
+    10753    0.103    0.000    1.759    0.000 /home/cyppsp/anaconda2/lib/python2.7/site-packages/prody/atomic/atomgroup.py:263(__eq__)
+      111    0.023    0.000    1.579    0.014 /home/cyppsp/project_bayesian/BAL/src/cNMA/Software/Utils.py:374(getMatchingStructureSelections)
+    10737    0.019    0.000    1.566    0.000 {all}
+   142638    1.039    0.000    1.547    0.000 /home/cyppsp/anaconda2/lib/python2.7/site-packages/prody/atomic/atomgroup.py:270(<genexpr>)
+        5    1.235    0.247    1.322    0.264 /home/cyppsp/anaconda2/lib/python2.7/site-packages/prody/proteins/pdbfile.py:784(writePDBStream)
+        1    0.000    0.000    1.281    1.281 /home/cyppsp/project_bayesian/BAL/src/cNMA/Software/ResultsPrinter.py:342(writeSampleResults)
+        1    0.000    0.000    1.280    1.280 /home/cyppsp/anaconda2/lib/python2.7/site-packages/prody/proteins/pdbfile.py:924(writePDB)
+        1    0.000    0.000    0.967    0.967 /home/cyppsp/project_bayesian/BAL/src//cNMA//Software/NMAUnified.py:719(outputResults)
+        1    0.000    0.000    0.809    0.809 /home/cyppsp/project_bayesian/BAL/src/cNMA/Software/ResultsPrinter.py:942(writeNMDResults)
+       73    0.004    0.000    0.686    0.009 /home/cyppsp/project_bayesian/BAL/src/cNMA/Software/ANMs.py:2098(getCalphaPosition)
+
+

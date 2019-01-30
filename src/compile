@@ -1,0 +1,5 @@
+g++ -w ./modify_input_pdb.cpp -o bdock_setup
+./bdock_setup
+
+g++ -w  -I  ../dependencies/eigen_library/  prepocess_complex.cpp complex_sample.cpp hyperparameter.cpp BAL.cpp result_analysis.cpp -o for_train 
+

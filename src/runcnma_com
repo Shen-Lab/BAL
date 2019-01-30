@@ -1,0 +1,6 @@
+rm -rf cNMA_output/Rec
+
+mkdir cNMA_output/Rec
+
+python $3/Software/NMAUnified.py --profile --outputPath $1/cNMA_output/Rec/ $1/Configuration.py $1/prepocess/$2\_r_u.pdb $1/prepocess/$2\_l_u.pdb >> stdout
+

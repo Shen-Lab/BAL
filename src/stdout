@@ -1,0 +1,133 @@
+1AY7_u_reference_ANM.nmd
+1AY7_u_complex_slc_ANM.nmd
+1AY7_u_complex_ANM.nmd
+1AY7_u_counterpart_ANM.nmd
+profiler.pro
+/home/cyppsp/project_bayesian/BAL/src/Configuration.py
+NMA without post analysis
+anm_reference anm_counterpart, anm_complex getArray() shapes :  (288, 288) (267, 267) (555, 406)
+anm_reference_slc, anm_complex_slc getArray() shapes :  (288, 288) (555, 406)
+intermolecular contacts:  3
+intermolecular contacts:  11
+intermolecular contacts:  16
+intermolecular contacts:  17
+intermolecular contacts:  9
+intermolecular contacts:  5
+intermolecular contacts:  11
+intermolecular contacts:  9
+intermolecular contacts:  9
+intermolecular contacts:  10
+intermolecular contacts:  6
+intermolecular contacts:  6
+intermolecular contacts:  4
+intermolecular contacts:  1
+intermolecular contacts:  1
+intermolecular contacts:  3
+intermolecular contacts:  6
+intermolecular contacts:  3
+intermolecular contacts:  6
+intermolecular contacts:  2
+intermolecular contacts:  3
+intermolecular contacts:  1
+intermolecular contacts:  4
+intermolecular contacts:  7
+intermolecular contacts:  13
+intermolecular contacts:  13
+intermolecular contacts:  9
+intermolecular contacts:  11
+intermolecular contacts:  3
+intermolecular contacts:  5
+intermolecular contacts:  1
+intermolecular contacts:  2
+intermolecular contacts:  1
+intermolecular contacts:  3
+intermolecular contacts:  8
+intermolecular contacts:  14
+intermolecular contacts:  11
+intermolecular contacts:  6
+added custom terms to hessian
+total intermolecular contacts:  253
+intermolecular contacts:  3
+intermolecular contacts:  1
+intermolecular contacts:  1
+intermolecular contacts:  3
+intermolecular contacts:  6
+intermolecular contacts:  7
+intermolecular contacts:  11
+intermolecular contacts:  4
+intermolecular contacts:  5
+intermolecular contacts:  5
+intermolecular contacts:  2
+intermolecular contacts:  1
+intermolecular contacts:  7
+intermolecular contacts:  7
+intermolecular contacts:  2
+intermolecular contacts:  7
+intermolecular contacts:  15
+intermolecular contacts:  13
+intermolecular contacts:  10
+intermolecular contacts:  19
+intermolecular contacts:  29
+intermolecular contacts:  22
+intermolecular contacts:  10
+intermolecular contacts:  12
+intermolecular contacts:  7
+intermolecular contacts:  4
+intermolecular contacts:  2
+intermolecular contacts:  6
+intermolecular contacts:  3
+intermolecular contacts:  1
+intermolecular contacts:  8
+intermolecular contacts:  7
+intermolecular contacts:  7
+intermolecular contacts:  4
+intermolecular contacts:  2
+added custom terms to hessian
+total intermolecular contacts:  253
+intermolecular contacts:  3
+intermolecular contacts:  11
+intermolecular contacts:  16
+intermolecular contacts:  17
+intermolecular contacts:  9
+intermolecular contacts:  5
+intermolecular contacts:  11
+intermolecular contacts:  9
+intermolecular contacts:  9
+intermolecular contacts:  10
+intermolecular contacts:  6
+intermolecular contacts:  6
+intermolecular contacts:  4
+intermolecular contacts:  1
+intermolecular contacts:  1
+intermolecular contacts:  3
+intermolecular contacts:  6
+intermolecular contacts:  3
+intermolecular contacts:  6
+intermolecular contacts:  2
+intermolecular contacts:  3
+intermolecular contacts:  1
+intermolecular contacts:  4
+intermolecular contacts:  7
+intermolecular contacts:  13
+intermolecular contacts:  13
+intermolecular contacts:  9
+intermolecular contacts:  11
+intermolecular contacts:  3
+intermolecular contacts:  5
+intermolecular contacts:  1
+intermolecular contacts:  2
+intermolecular contacts:  1
+intermolecular contacts:  3
+intermolecular contacts:  8
+intermolecular contacts:  14
+intermolecular contacts:  11
+intermolecular contacts:  6
+added custom terms to offDiagonalHessianMatrix
+total intermolecular contacts:  253
+reference is receptor, shapes of HRtilde, HLtilde, HRL:  (288, 288) (267, 267) (288, 267)
+before projection symmetry ==, allclose:  True True
+before full projection
+Replacing ANM H with ANM Htilde for the complex
+Replacing ANM H with ANM Htilde for the reference
+Results have been written to:  /home/cyppsp/project_bayesian/BAL/src//cNMA_output/Rec/Output/
+NMA calculations and RMSD prediction finished.

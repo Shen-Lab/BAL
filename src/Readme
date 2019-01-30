@@ -1,0 +1,19 @@
+This is the ReadMe file for BAL in protein docking.
+
+
+Output file:
+
+a.'end'(dir):
+	containing the refined structure: receptor.pdb ligand.pdb
+
+b.'scores':   
+	The final score of refined structure.
+
+c.'PMI_log':
+	The log of area under the posterior.
+
+d.'cond_prob.dat':
+	The conditional probability of refined structure: P(RMSD(x^,x*)<4 | x* \in Mi)
+
+e. 'Rmsd_dis':
+        The RMSD(x^,x*)  distribution of the posterior
