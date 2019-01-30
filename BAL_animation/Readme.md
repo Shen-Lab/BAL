@@ -1,0 +1,23 @@
+* Animation of protein motions in BAL
+
+* 1. All files are in the format of mp4.
+
+*2. The file name is:
+(protein name)_m(model index)_Nx.mp4
+
+If one file name does not have '_Nx', then it belongs to Type A (shown below).
+Otherwise, it belongs to Type B.
+
+
+* 3. Two types motions are shown here:
+
+** A. The trajectory of protein moving from starting structure to the end structure.
+
+We record the best sample(lowest energy) at the end of each iteration, and then do linear interpolation between ith sample 
+and (i+1)th sample. The grey structure showing up in the last 3 seconds is the native complex. 
+
+** B. The trajectory of protein moving along the top xth complex normal mode, where x is given in the file name. 
+
+* 4.  The protein in cyan is the receptor, and the protein in orange is the ligand.
+
+PS:  The flashing part in the video is due to the display issue of Pymol for alpha and beta helixes. 
