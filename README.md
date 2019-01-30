@@ -23,3 +23,24 @@ In src/configuration.h, please change the macro 'protein_name' to your 4-letter/
 * Go to 'BAL/src/'.
 * Type './complie' to compile.
 * Type './for_train' to run BAL.
+
+
+## Output file:
+
+* a.'end'(dir):
+        containing the refined structure: receptor.pdb ligand.pdb
+
+* b.'scores':
+        The final score of refined structure.
+
+* c.'PMI_log':
+        The log of area under the posterior.
+
+* d.'cond_prob.dat':
+        The conditional probability of refined structure: P(RMSD(x^,x*)<4 | x* \in Mi)
+
+* e. 'Rmsd_dis':
+        The RMSD(x^,x*)  distribution of the posterior
+
+* f. 'UQ':
+	The [lb,ub] values
