@@ -19,7 +19,7 @@ In src/configuration.h, please change the macros as follow:
 ## Add unbound proteins:
 In src/configuration.h, please change the macro 'protein_name' to your 4-letter/digit protein code. Also please change the macro 'protein_path" to the path where the unbound protein is.
 
-## If your unbound protein is not in Protein Docking Benchmark 4.0 and you want to get the UQ results, please append its Kd value into 'src/kd_zero' and append the protein name into 'src/kd_list'. Otherwise, you will only get refined structure and the P(Mi|U).
+## If your unbound protein is not in Protein Docking Benchmark 4.0 and you want to get the UQ results, please append its Kd value into 'src/kd_zero' and append the protein name into 'src/kd_list'. Otherwise, you will only get the refined structures and the area under the posterior.
 
 ## Compile and Run
 * Go to 'BAL/src/'.
@@ -29,10 +29,10 @@ In src/configuration.h, please change the macro 'protein_name' to your 4-letter/
 ## Output file:
 
 * a.'end'(dir):
-        containing the refined structure: receptor.pdb ligand.pdb
+        containing the refined structures: receptor.pdb ligand.pdb
 
 * b.'scores':
-        The final score of refined structure.
+        The final energy (unit in Kcal/mol) of refined structures.
 
 * c.'PMI_log':
         The log of area under the posterior.
