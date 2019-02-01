@@ -17,8 +17,8 @@ int main(int argc, char **argv)
 
 	char protein[4];
 	double kd;
-
-	while(1)
+	int i=1;
+	while(i<200)
 	{
 		Kd_list>>protein;
 		Kd_zero>>kd;
@@ -28,6 +28,7 @@ int main(int argc, char **argv)
 				out<<kd;
 				break;
 		}
+		i++;
 
 	}
 	out<<kd;
