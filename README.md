@@ -3,10 +3,10 @@ Bayesian Active Learning for Optimization and Uncertainty Quantification with Ap
 
 ## Dependencies:
 * C++ 4.8.5 or higher
-* cNMA:  Download and install the cNMA from "https://github.com/Shen-Lab/cNMA".
+* cNMA: Download and install the cNMA from "https://github.com/Shen-Lab/cNMA".
 * Energy model:  Please download the random forest energy model from 
 "https://drive.google.com/file/d/17ByuNoYy0t1R8EjuTK_cMyul5K004MHa/view?usp=sharing"
-* CHARMM27: Download the executable
+* CHARMM: Download the executable 'CHARMM36a1.exe', GBSW: 'radius_gbsw.str', CHARMM27 topology and parameter files and put them into 'dependencies/'.
 * Linux Environment
 
 ## Change directory path
@@ -45,3 +45,21 @@ In src/configuration.h, please change the macro 'protein_name' to your 4-letter/
 
 * f. 'UQ':
 	The [lb,ub] values
+	
+## Citation:
+```
+@article{Cao537035,
+        author = {Cao, Yue and Shen, Yang},
+        title = {Bayesian Active Learning for Optimization and Uncertainty Quantification in Protein Docking},
+        elocation-id = {537035},
+        year = {2019},
+        doi = {10.1101/537035},
+        publisher = {Cold Spring Harbor Laboratory},
+        URL = {https://www.biorxiv.org/content/early/2019/01/31/537035},
+        eprint = {https://www.biorxiv.org/content/early/2019/01/31/537035.full.pdf},
+        journal = {bioRxiv}
+	}
+```
+
+## Contact:
+Yang Shen: yshen@tamu.edu
