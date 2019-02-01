@@ -47,7 +47,7 @@ In src/configuration.h, please change the macro 'protein_name' to your 4-letter/
 	The [lb,ub] values
 	
 ## Citation:
-
+```
 @article{Cao537035,
         author = {Cao, Yue and Shen, Yang},
         title = {Bayesian Active Learning for Optimization and Uncertainty Quantification in Protein Docking},
@@ -59,6 +59,7 @@ In src/configuration.h, please change the macro 'protein_name' to your 4-letter/
         eprint = {https://www.biorxiv.org/content/early/2019/01/31/537035.full.pdf},
         journal = {bioRxiv}
 	}
+```
 
 ## Contact:
 Yang Shen: yshen@tamu.edu
