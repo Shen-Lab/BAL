@@ -3,10 +3,10 @@ Bayesian Active Learning for Optimization and Uncertainty Quantification with Ap
 
 ## Dependencies:
 * C++ 4.8.5 or higher
-* cNMA:  Download and install the cNMA from "https://github.com/Shen-Lab/cNMA".
+* cNMA: Download and install the cNMA from "https://github.com/Shen-Lab/cNMA".
 * Energy model:  Please download the random forest energy model from 
 "https://drive.google.com/file/d/17ByuNoYy0t1R8EjuTK_cMyul5K004MHa/view?usp=sharing"
-* CHARMM27: Download the executable 'CHARMM36a1.exe', GBSW: 'radius_gbsw.str', CHARMM27 topology and parameter files and put them into 'dependencies/'.
+* CHARMM: Download the executable 'CHARMM36a1.exe', GBSW: 'radius_gbsw.str', CHARMM27 topology and parameter files and put them into 'dependencies/'.
 * Linux Environment
 
 ## Change directory path
