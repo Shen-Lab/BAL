@@ -1,1 +1,30 @@
+This is the ReadMe file for BAL in protein docking.
 
+
+src/
+
+prepocess_complex.cpp:  To do prepocessing: minimise the starting structure, calculate the unbound energy, calculate the complex normal modes, calculate the putative interface.
+BAL.cpp:                The core program to do BAL, including the Thompson sampling and UQ, P(Mi) calculation.
+complex_sample.cpp:     The main sampling program: To sample a new conformation based on the complex normal modes.
+hyperparameter.cpp:     The collection of a lot of subroutines: Krging regressor, kernel calculation, entropy calculation, posterior calculation.
+scoring_rmsd.py:	Scoring program:  For running the random forest.
+
+
+
+
+Output file:
+
+a.'end'(dir):
+	containing the refined structure: receptor.pdb ligand.pdb
+
+b.'scores':   
+	The final score of refined structure.
+
+c.'PMI_log':
+	The log of area under the posterior.
+
+d.'cond_prob.dat':
+	The conditional probability of refined structure: P(RMSD(x^,x*)<4 | x* \in Mi)
+
+e. 'Rmsd_dis':
+        The RMSD(x^,x*)  distribution of the posterior
