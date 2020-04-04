@@ -1,5 +1,6 @@
 # BAL
 Bayesian Active Learning for Optimization and Uncertainty Quantification with Applications in Protein Docking
+https://www.biorxiv.org/content/10.1101/537035v1.full
 
 ## Dependencies:
 * C++ 4.8.5 or higher
