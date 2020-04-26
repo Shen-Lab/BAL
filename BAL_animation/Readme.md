@@ -15,7 +15,7 @@ In BAL sampling, we use the first K1 complex normal modes (ranked by the whole-c
 
 ## BAL sampling trajectories 
 
-Files are named {PDB ID}_m{Starting Model Index}.mp4. Receptors are in cyan cartoons and ligands are in orange cartoons. At the end of each move, bound conformations are shown in gray.  
+Files are named {PDB ID}_m{Starting Model Index}. Receptors are in cyan cartoons and ligands are in orange cartoons. In the last 3 seconds of each movie, bound conformations are shown in gray and overlaid with the final prediction.  
 
 In the four sampling examples given, 3 are about the refinement of near-native starting models.  The other (4CPA_m4) starts with a non-native starting model.   
 
