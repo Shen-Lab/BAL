@@ -8,8 +8,6 @@ https://www.biorxiv.org/content/10.1101/537035v1.full
 * Energy model:  Please download the random forest energy model from 
 https://drive.google.com/open?id=17ByuNoYy0t1R8EjuTK_cMyul5K004MHa
 * CHARMM: Download the executable 'CHARMM36a1.exe', GBSW: 'radius_gbsw.str', CHARMM27 topology and parameter files and put them into 'dependencies/'.
-* ICE Library:
-https://drive.google.com/open?id=1pCow34TmhDgIaihVJXDZpVrg6MQO_8aO
 * Linux Environment
 
 ## Change directory path
