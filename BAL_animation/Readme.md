@@ -10,7 +10,7 @@ In these examples for 4JW2 (Starting Model 7 from ZDOCK unbound docking), we see
 
 **How these movies of normal modes are made:** We show the motion of each protein complex moving along each designated complex normal mode.  The extent is currently set at the predicted.   
 
-In BAL sampling, we use the first K1 complex normal modes (ranked by the whole-complex eigen values) plus K2 more (ranked by those eigen values after being rescaled to the contribution of receptors alone; as in Eq. 7 of https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4765865/  Currently K1 is set at 9 (to approcimately include 6 involving ligand rigid motions and 3 involving ligand flexibility motions) and K2 is set at 3 (to include those involving receptor flexibility motions).  
+In BAL sampling, we use the first K1 complex normal modes (ranked by the whole-complex eigen values) plus K2 more (ranked by those eigen values after being rescaled to the contribution of receptors alone; as in Eq. 7 of https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4765865/  Currently K1 is set at 9 (to approximately include 6 involving ligand rigid motions and 3 involving ligand flexibility motions) and K2 is set at 3 (to include those involving receptor flexibility motions).  
 
 ## BAL sampling trajectories 
 
