@@ -347,7 +347,7 @@ double scoring(double *feature)
 		feature[2], feature[3], feature[4], feature[5], feature[6], feature[7], nresir, path);
 	system(run);
 
-	fin.open("scores", ios::in);
+	fin.open(current_directory"/Result/scores", ios::in);
 	fin>>scores;
  	fin.close();
  	return scores;

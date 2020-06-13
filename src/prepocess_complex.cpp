@@ -39,7 +39,7 @@ char residue_name_lig[atom_max][5];
 char residue_name_rec[atom_max][5];
 double sample_lig[atom_max][3];
 double sample_rec[atom_max][3];
-double Kd;
+
 
 double eigenvalues[numofnodes];
 double eigenvectors[numofnodes][residue_max];
@@ -62,15 +62,9 @@ void preprocess()
 	
 	FILE *rmsd_prediction;
 	FILE *Eigenvalue;
-	FILE *Kdd;
+
 	string str;
 
-
-	system("./extract_Kd "protein_name);
-    Kdd=fopen(current_directory"/Kd_value","r");
-    fscanf(Kdd,"%lf",&Kd);
-
-    fclose(Kdd);
 
 //----------------------------------------------------------------Hbuild by CHARMM-----------------------------------
 //
@@ -435,7 +429,7 @@ int main()
         srand(time(NULL));
         preprocess();
         constant_setting();
-	    bayesiandock();
+	bayesiandock();
 
 
         double x[12]={-0.0677,  0.0327, -0.3143,  0.4218, -0.3891,  0.4027,  0.4881, -0.6794, -0.3804 , 0.5015,  0.4759 , 0.0162};

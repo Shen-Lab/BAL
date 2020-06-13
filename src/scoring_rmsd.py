@@ -12,7 +12,7 @@ if(sys.argv[10][-5]=='t'):
 	print sample
 
 	rf = pickle.load(open(sys.argv[10], 'rb'))
-	np.savetxt("scores", rf.predict(np.asarray(sample).reshape(1,-1)))
+	np.savetxt("Result/scores", rf.predict(np.asarray(sample).reshape(1,-1)))
 
 
 else:
@@ -41,4 +41,4 @@ else:
 	print sample
 
 	rf = pickle.load(open(sys.argv[10], 'rb'))
-	np.savetxt("scores", rf.predict(np.asarray(sample).reshape(1,-1)))	
+	np.savetxt("Result/scores", rf.predict(np.asarray(sample).reshape(1,-1)))	

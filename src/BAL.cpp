@@ -108,7 +108,7 @@ void bayesiandock()
 	// -----------------------generate normal random points;
 	//FILE *ac=fopen(current_directory"/Result/acratio.dat","w");
 	fstream zhongjian;
-	zhongjian.open(output_path"/Result/acratio.dat", ios::out);
+	zhongjian.open(current_directory"/Result/acratio.dat", ios::out);
 	
 
 
@@ -274,7 +274,7 @@ void bayesiandock()
 	zhongjian.close();
 
 
-	FILE *qual=fopen(output_path"/Result/quality","w");
+	FILE *qual=fopen("Result/quality","w");
 	fprintf(qual, "%lf\n", f_current_best);
 	for(int i=0; i<NK; i++)
 		fprintf(qual, "%lf ", x_current_best[i]);
@@ -282,7 +282,7 @@ void bayesiandock()
 
 	fclose(qual);
 
-	qual=fopen(output_path"/Result/samples","w");
+	qual=fopen("Result/samples","w");
 
 	for(int i=0; i<sample.n; i++)
 	{
@@ -393,8 +393,6 @@ void bayesiandock()
 	double RMSD[rmsd_sample];
 	double pmi[sample_pmi][NK];
 	double numerical[sample_pmi];
-	double score[rmsd_sample];
-
 
 void uncertainty(Samples sample, double *x_center, double stepsize)
 {
@@ -452,7 +450,6 @@ void uncertainty(Samples sample, double *x_center, double stepsize)
 			acratio+=augment;
 
 			RMSD[t2] = RMSD_distance(x_new, x_center);
-			score[t2]= -kriging(sample, x_new);
 			if(t2<sample_pmi)
 				memcpy(pmi[t2], x_new, sizeof(x_new));
 
@@ -476,8 +473,7 @@ void uncertainty(Samples sample, double *x_center, double stepsize)
 
 
 		double probability = s/sample_pmi;
-	//	numerical[i] = sample.rho*kriging(sample, pmi[i]) - log(probability);  //here we do a trick to prevent the numerical issue.
-		numerical[i] = 1.69*kriging(sample, pmi[i]) - log(probability);        // 1/23/2019 update
+		numerical[i] = sample.rho*kriging(sample, pmi[i]) - log(probability);  //here we do a trick to prevent the numerical issue.
 
 		if(numerical[i] > Z) Z=numerical[i];
 	}
@@ -498,33 +494,22 @@ void uncertainty(Samples sample, double *x_center, double stepsize)
 	FILE *numerica;
 
 	qsort(RMSD, rmsd_sample, sizeof(double), compare);
-	qsort(score, rmsd_sample, sizeof(double), compare);
 
-	numerica=fopen(output_path"/Result/numerical.dat","w");
+
+	numerica=fopen(current_directory"/Result/numerical.dat","w");
 
 	for(int i=0; i<sample_pmi; i++)
 		fprintf(numerica, "%.4lf\n", numerical[i]);
 	fprintf(numerica, "%.4lf\n", Z);
 
 
-	rmsd=fopen(output_path"/Result/Rmsd_dis.dat","w");
+	rmsd=fopen(current_directory"/Result/Rmsd_dis.dat","w");
 
 	for(int i=0; i<rmsd_sample; i++)
 		fprintf(rmsd, "%.4lf\n", RMSD[i]);
 
-
-	FILE *uq=fopen(output_path"/Result/UQ","w");
-
-    double lb,ub;
-
-
-	lb = pow((score[int(0.05*double(rmsd_sample))]-0.593*log(Kd))/8.72,2);
-	ub = pow((score[int(0.95*double(rmsd_sample))]-0.593*log(Kd))/8.72,2);
-
-	fprintf(uq, "%.4lf %.4lf\n", lb, ub);
-           
-			
-	a2 = fopen(output_path"/Result/uncertainty.dat","w");
+		
+	a2 = fopen(current_directory"/Result/uncertainty.dat","w");
 
 	int i;
 	for(i=0; i<rmsd_sample; i++)
@@ -534,7 +519,7 @@ void uncertainty(Samples sample, double *x_center, double stepsize)
 	fprintf(a2, "%10.4lf\n", (double(i))/double(rmsd_sample));
 	
 
-	a3 = fopen(output_path"/Result/PMI_log","w");  //----In order to keep numerical stable, we record log(P(Mi))
+	a3 = fopen(current_directory"/Result/PMI_log","w");  //----In order to keep numerical stable, we record log(P(Mi))
 
 	fprintf(a3, "%10.4lf\n", P_mi);
 
@@ -543,7 +528,6 @@ void uncertainty(Samples sample, double *x_center, double stepsize)
 	fclose(a3);
 	fclose(a2);
 	fclose(rmsd);
-	fclose(uq);
 }
 
 

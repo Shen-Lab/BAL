@@ -49,7 +49,6 @@ int main(int argc, char **argv)
 	system("mkdir "current_directory"/minmiz");
 	system("mkdir "current_directory"/cNMA_output");
 	system("mkdir "output_path"/Result");
-	system("sed -i %s/aaa/"depd_dir"/g compile");
 //----------------------------------------------------------------------------
 	char file[1000];
 	string nstep[1000];
@@ -57,7 +56,7 @@ int main(int argc, char **argv)
 	string ss;
 	char c, p ; 
 	int residue_ind, t;
-	
+        system("python pre_bal.py "protein_path""protein_name"_r_u.pdb "protein_path""protein_name"_l_u.pdb in");
 
 		system("grep 'ATOM' "protein_path""protein_name"_r_u.pdb | egrep 'ALA|ARG|ASN|ASP|CYS|GLN|GLU|GLY|HIS|HSE|HSD|ILE|LEU|LYS|MET|PHE|PRO|SER|THR|TRP|TYR|VAL' > temp.dat");
 	
@@ -158,6 +157,7 @@ int main(int argc, char **argv)
 
 		modify_charmm(current_directory"/prepocess/hbuild.inp", current_directory"/minmiz/minmiz.inp", rec_chain, p, nstep);
 		modify_charmm_unbound(current_directory"/prepocess/urec.inp", current_directory"/prepocess/ulig.inp", rec_chain, p, nstep);
+
  	return 0;
 }
 
@@ -166,10 +166,6 @@ void modify_charmm_unbound(char *path_hbuild, char *path_minimiz, char rec_chain
  //----------------------------------------modify path_hbuild-----------------------------------------
 
 	ofstream fout(path_hbuild);
-//	cout<<path_hbuild<<" "<<path_minimiz<<endl;
-//	ofstream f1("hehe");
-//	f1<<1;
-//	f1.close();
 	fout<<"! =========================================="<<endl;
 	fout<<"! Read in topology and parameter files"<<endl;
 	fout<<"! ===================================="<<endl;
@@ -181,6 +177,7 @@ void modify_charmm_unbound(char *path_hbuild, char *path_minimiz, char rec_chain
 	fout<<"close unit 1"<<endl;
 	fout<<endl;
 	fout<<endl;
+
 	fout<<"open read unit 1 card name \""<<charmm_para<<"\""<<endl;
 	fout<<"read para card unit 1"<<endl;
 	fout<<"close unit 1"<<endl;
@@ -237,9 +234,7 @@ void modify_charmm_unbound(char *path_hbuild, char *path_minimiz, char rec_chain
 	fout<<endl;
 	fout<<endl;
 
-	fout<<"skip all excl bond angl urey dihe impr"<<endl;
 	fout<<"mini sd nstep 100"<<endl;
-	fout<<"skip all excl bond angl urey dihe impr vdw vatt vrep"<<endl;	
 	fout<<endl;
 
 	fout<<endl;

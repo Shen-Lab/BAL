@@ -27,10 +27,10 @@ void posterior_anaylsis(double *x)
 
 
 	scoring(feature);
-	system("mkdir "output_path"/Result/end");
-        system("cp minmiz/receptor.pdb "output_path"Result/end/");
-        system("cp minmiz/ligand.pdb "output_path"Result/end/");
-	system("cp scores "output_path"Result/");
+	system("mkdir Result/end");
+        system("cp minmiz/receptor.pdb Result/end/");
+        system("cp minmiz/ligand.pdb Result/end/");
+        system("python pre_bal.py Result/end/receptor.pdb Result/end/ligand.pdb out");
 
 //--------------------------------------starting structure--------------------------------
 	for(int i=0; i<NK; i++) x[i]=0;
@@ -41,8 +41,8 @@ void posterior_anaylsis(double *x)
 
 	scoring(feature);
 	
-	system("mkdir "output_path"Result/start");
-	system("cp minmiz/receptor.pdb "output_path"Result/start/");
-	system("cp minmiz/ligand.pdb "output_path"Result/start/");
-
+	system("mkdir Result/start");
+	system("cp minmiz/receptor.pdb Result/start/");
+	system("cp minmiz/ligand.pdb Result/start/");
+        system("python pre_bal.py Result/start/receptor.pdb Result/start/ligand.pdb out");
 }

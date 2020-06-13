@@ -32,7 +32,7 @@ sed -i 's/ILE CD1/ILE CD /g' un_ligand.pdb
 
 $4 un_receptor.pdb un_receptor.crd
 $4 un_ligand.pdb   un_ligand.crd
-rm un_receptor.pdb un_ligand.pdb
+rm -f un_receptor.pdb un_ligand.pdb
 
 $5 un_receptor.crd
 $5 un_ligand.crd

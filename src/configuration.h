@@ -1,23 +1,22 @@
 #ifndef configuration_H
 #define configuration_H
 
-#define protein_name 	"1AY7"
-#define protein_path 	"/home/cyppsp/project_bayesian/BAL/src/Input/"
-#define src_dir 	"/home/cyppsp/project_bayesian/BAL/src/"
-#define depd_dir 	"/home/cyppsp/project_bayesian/BAL/dependencies/"
-#define output_path 	"/home/cyppsp/project_bayesian/BAL/"
+#define protein_name "80r"
+#define protein_path "/scratch/user/cyppsp/project_bayesian/covid_19/ncov_80r/Input/"
 
-#define current_directory   src_dir
-#define cnma_path	    src_dir"/cNMA/"   //---------------------------Here is complex cNMA!!
-#define scoring_path        src_dir"/random_forest.sav"
+#define current_directory "/scratch/user/cyppsp/project_bayesian/covid_19/ncov_80r/"
+#define output_path "/scratch/user/cyppsp/project_bayesian/covid_19/ncov_80r/"
 
-#define charmm_exe     depd_dir"/charmm36a1.exe"
-#define charmm_para    depd_dir"/par_all27_prot_na_drv.v4.1.inp"
-#define charmm_top     depd_dir"/top_all27_prot_na_drv.v4.1.inp"
-#define charmm_setup   depd_dir"/charmm_setup.prl"
-#define charmm_gbsw    depd_dir"/radius_gbsw.str"
-#define pdb_crd        depd_dir"/pdb_crd.prl"
-#define crd_pdb        depd_dir"/crd_pdb.prl"
+#define cnma_path "/scratch/user/cyppsp/project_bayesian/covid_19/ncov_80r/cNMA/"   //---------------------------Here is complex cNMA!!
+#define scoring_path "~/random_forest.sav"
+
+#define charmm_exe   "/home/cyppsp/bin/charmm36a1.exe"
+#define charmm_para   "/home/cyppsp/param/par_all27_prot_na_drv.v4.1.inp"
+#define charmm_top     "/home/cyppsp/param/top_all27_prot_na_drv.v4.1.inp"
+#define charmm_setup  "/home/cyppsp/scripts/charmm_setup.prl"
+#define charmm_gbsw  "/home/cyppsp/param/radius_gbsw.str"
+#define pdb_crd        "/home/cyppsp/scripts/pdb_crd.prl"
+#define crd_pdb        "/home/cyppsp/scripts/crd_pdb.prl"
 
 
 #define charsize 10000
@@ -155,7 +154,6 @@ extern double eigenvectors[numofnodes][residue_max];
 //extern double radius_soid[NK];
 //extern double transform1[NK][NK];
 //extern double ellipsoid_radius[NK];
-extern double Kd;
 
 
 void preprocess();
