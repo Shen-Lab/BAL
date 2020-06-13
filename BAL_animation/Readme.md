@@ -1,23 +1,26 @@
-* Animation of protein motions in BAL
+# Animation of protein motions in BAL
 
-* 1. All files are in the format of mp4.
+All files are in the format of mp4.  There are two types of movies: 
 
-*2. The file name is:
-(protein name)_m(model index)_Nx.mp4
+## complex normal modes (by cNMA) 
 
-If one file name does not have '_Nx', then it belongs to Type A (shown below).
-Otherwise, it belongs to Type B.
+Files are named {PDB ID}_m{Starting Model Index}_N{cNMA Normal Mode Index}. Receptors are in cyan cartoons and ligands are in orange cartoons. 
+
+In these examples for 4JW2 (Starting Model 7 from ZDOCK unbound docking), we see that the first 3 complex normal modes are dominated by ligand motions, whereas the 6th, 7th, and 9th normal modes include substantial receptor deformations along with ligand motions.  
+
+How these movies of normal modes are made: We show the motion of each protein complex moving along each designated complex normal mode.  The extent is currently set at the predicted value (see Sec. 2.3.3 of https://arxiv.org/abs/1902.00067).   
+
+In BAL sampling, we use the first K1 complex normal modes (ranked by the whole-complex eigen values) plus K2 more (ranked by those eigen values after being rescaled to the contribution of receptors alone; as in Eq. 7 of https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4765865/).  Currently K1 is set at 9 (to approximately include 6 involving ligand rigid motions and 3 involving ligand flexibility motions) and K2 is set at 3 (to include those involving receptor flexibility motions).  For instance, in the case of 4JW2_m7, the 6th, 7th, and 9th normal modes are actually the slowest normal modes for the receptor portion (after aforementioned re-scaling).  Of course, in this case, they would have been included in the top K1=9 complex normal modes anyway.  So the other K2=3 of the total 12 normal modes would be chosen further down the list of receptor-dominant normal modes.   
 
 
-* 3. Two types motions are shown here:
+## BAL sampling trajectories 
 
-** A. The trajectory of protein moving from starting structure to the end structure.
+Files are named {PDB ID}_m{Starting Model Index}. Receptors are in cyan cartoons and ligands are in orange cartoons. In the last 3 seconds of each movie, bound conformations are shown in gray and overlaid with the final prediction.  
 
-We record the best sample(lowest energy) at the end of each iteration, and then do linear interpolation between ith sample 
-and (i+1)th sample. The grey structure showing up in the last 3 seconds is the native complex. 
+In the four sampling examples given, 3 are about the refinement of near-native starting models.  The other (4CPA_m4) starts with a non-native starting model.   
 
-** B. The trajectory of protein moving along the top xth complex normal mode, where x is given in the file name. 
+How these sampling movies are made: We record the best sample (of the lowest energy) at the end of each BAL iteration and show the motions through linear interpolation between the ith and the (i+1)th such samples.  Sometimes the movies appear to be "frozen" but actually it is because not every iteration sees a lower-energy sample.  
 
-* 4.  The protein in cyan is the receptor, and the protein in orange is the ligand.
+PS:  The flashing part in the video is due to the style of Pymol visualization for secondary structures. 
 
-PS:  The flashing part in the video is due to the display issue of Pymol for alpha and beta helixes. 
+
