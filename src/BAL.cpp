@@ -142,7 +142,7 @@ void bayesiandock()
 				
 
 
-				if(sample.y[sample.n]>f_current_best)  //-----------------find the current best points
+				if(sample.y[sample.n]>f_current_best && feature[5]<0)  //-----------------find the current best points
 				{
 					f_current_best = sample.y[sample.n];
 					memcpy(x_current_best,x_new,sizeof(x_new));
@@ -260,7 +260,7 @@ void bayesiandock()
                                 fprintf(printfeat, "%9.2f\n", -sample.y[sample.n+t2]-20);
 
 
-					if(sample.y[(sample.n)+t2]>f_current_best)
+					if(sample.y[(sample.n)+t2]>f_current_best  && feature[5]<0)
 					{
 					
 						f_current_best = sample.y[(sample.n)+t2];
