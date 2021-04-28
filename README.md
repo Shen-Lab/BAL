@@ -2,6 +2,12 @@
 Bayesian Active Learning for Optimization and Uncertainty Quantification with Applications in Protein Docking
 https://pubs.acs.org/doi/abs/10.1021/acs.jctc.0c00476
 
+
+# Versions in branch:
+* master: The standard BAL
+* noclashv1: The version whose output structure will gurantee \delta vdw<0.
+
+
 ## Dependencies:
 * C++ 4.8.5 or higher
 * cNMA: Download and install the cNMA from "https://github.com/Shen-Lab/cNMA".
@@ -47,6 +53,7 @@ In src/configuration.h, please change the macro 'protein_name' to your 4-letter/
 
 * f. 'UQ':
 	The [lb,ub] values
+
 	
 ## Citation:
 ```
