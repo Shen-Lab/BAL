@@ -104,13 +104,19 @@ void bayesiandock()
 	int plotn=0;
 	sample.n = 0;
 	f_current_best = -oo;
+	for (int i=0; i<NK; i++)
+            x_current_best[i]=0.
 
 	// -----------------------generate normal random points;
 	//FILE *ac=fopen(current_directory"/Result/acratio.dat","w");
 	fstream zhongjian;
-	zhongjian.open(current_directory"/Result/acratio.dat", ios::out);
+	zhongjian.open(output_path"/Result/acratio.dat", ios::out);
 	
 
+        FILE *printfeat=fopen(output_path"Result/energy_features","w");
+
+	fprintf(printfeat, "     bond     angl     dihe     impr     urey     vdww     sasa     gben     RF\n");
+	fprintf(printfeat, "UB:%9.2f%9.2f%9.2f%9.2f%9.2f%9.2f%9.2f%9.2f\n", un_bond, un_angl, un_dihe, un_impr, un_urey, un_vdw, un_sasa, un_ele_npo);
 
 	for(int t1=0; t1<30; t1++)
 	{
@@ -128,6 +134,13 @@ void bayesiandock()
 				}  
 			
 				sample.y[sample.n]=-scoring(feature)-20;
+
+
+				for (int j=0; j<8; j++)
+					fprintf(printfeat, "%9.2f", feature[j]);
+				fprintf(printfeat, "%9.2f\n", -sample.y[sample.n]-20);
+				
+
 
 				if(sample.y[sample.n]>f_current_best)  //-----------------find the current best points
 				{
@@ -242,6 +255,11 @@ void bayesiandock()
 
 					sample.y[(sample.n)+t2]=-scoring(feature)-20;
 
+                                for (int j=0; j<8; j++)
+                                        fprintf(printfeat, "%9.2f", feature[j]);
+                                fprintf(printfeat, "%9.2f\n", -sample.y[sample.n+t2]-20);
+
+
 					if(sample.y[(sample.n)+t2]>f_current_best)
 					{
 					
@@ -272,9 +290,9 @@ void bayesiandock()
 
 	//fclose(ac);
 	zhongjian.close();
+	fclose(printfeat);
 
-
-	FILE *qual=fopen("Result/quality","w");
+	FILE *qual=fopen(output_path"Result/quality","w");
 	fprintf(qual, "%lf\n", f_current_best);
 	for(int i=0; i<NK; i++)
 		fprintf(qual, "%lf ", x_current_best[i]);
@@ -282,7 +300,7 @@ void bayesiandock()
 
 	fclose(qual);
 
-	qual=fopen("Result/samples","w");
+	qual=fopen(output_path"Result/samples","w");
 
 	for(int i=0; i<sample.n; i++)
 	{
@@ -496,20 +514,20 @@ void uncertainty(Samples sample, double *x_center, double stepsize)
 	qsort(RMSD, rmsd_sample, sizeof(double), compare);
 
 
-	numerica=fopen(current_directory"/Result/numerical.dat","w");
+	numerica=fopen(output_path"/Result/numerical.dat","w");
 
 	for(int i=0; i<sample_pmi; i++)
 		fprintf(numerica, "%.4lf\n", numerical[i]);
 	fprintf(numerica, "%.4lf\n", Z);
 
 
-	rmsd=fopen(current_directory"/Result/Rmsd_dis.dat","w");
+	rmsd=fopen(output_path"/Result/Rmsd_dis.dat","w");
 
 	for(int i=0; i<rmsd_sample; i++)
 		fprintf(rmsd, "%.4lf\n", RMSD[i]);
 
 		
-	a2 = fopen(current_directory"/Result/uncertainty.dat","w");
+	a2 = fopen(output_path"/Result/cond_prob.dat","w");
 
 	int i;
 	for(i=0; i<rmsd_sample; i++)
@@ -519,7 +537,7 @@ void uncertainty(Samples sample, double *x_center, double stepsize)
 	fprintf(a2, "%10.4lf\n", (double(i))/double(rmsd_sample));
 	
 
-	a3 = fopen(current_directory"/Result/PMI_log","w");  //----In order to keep numerical stable, we record log(P(Mi))
+	a3 = fopen(output_path"/Result/LgAUC","w");  //----In order to keep numerical stable, we record log(P(Mi))
 
 	fprintf(a3, "%10.4lf\n", P_mi);
 

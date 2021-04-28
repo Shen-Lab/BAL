@@ -344,10 +344,10 @@ double scoring(double *feature)
 	char run[charsize];
 	char path[charsize]=scoring_path;
 	snprintf(run, sizeof(run), "python scoring_rmsd.py %lf %lf %lf %lf %lf %lf %lf %lf %d %s", feature[0], feature[1],
-		feature[2], feature[3], feature[4], feature[5], feature[6], feature[7], nresir, path);
+		feature[2], feature[3], feature[4], feature[5], feature[6], feature[7], output_path, path);
 	system(run);
 
-	fin.open(current_directory"/Result/scores", ios::in);
+	fin.open(output_path"/Result/scores", ios::in);
 	fin>>scores;
  	fin.close();
  	return scores;

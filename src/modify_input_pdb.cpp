@@ -266,7 +266,7 @@ void modify_charmm_unbound(char *path_hbuild, char *path_minimiz, char rec_chain
 	fout<<"skip none"<<endl;
 
 	fout<<"prnlev 0"<<endl;
-	fout<<"stream "<<charmm_gbsw<<endl;
+	fout<<"stream \""<<charmm_gbsw<<"\""<<endl;
 	fout<<"prnlev 5"<<endl;
 	fout<<"scalar wmain statistics select .not. type H* end"<<endl;
 	fout<<"GBSW sw 0.3 sgamma 0.03 dgp 1.5 GBenergy"<<endl;
@@ -405,7 +405,7 @@ void modify_charmm_unbound(char *path_hbuild, char *path_minimiz, char rec_chain
 	fout<<"skip none"<<endl;
 	
 	fout<<"prnlev 0"<<endl;
-	fout<<"stream "<<charmm_gbsw<<endl;
+	fout<<"stream \""<<charmm_gbsw<<"\""<<endl;
 	fout<<"prnlev 5"<<endl;
 	fout<<"scalar wmain statistics select .not. type H* end"<<endl;
 	fout<<"GBSW sw 0.3 sgamma 0.03 dgp 1.5 GBenergy"<<endl;
@@ -734,7 +734,7 @@ void modify_charmm(char *path_hbuild, char *path_minimiz, char rec_chain, char l
 //---------------------------------------------------------------output energy-----------------------
 
 	fout<<"prnlev 0"<<endl;
-	fout<<"stream "<<charmm_gbsw<<endl;
+	fout<<"stream \""<<charmm_gbsw<<"\""<<endl;
 	fout<<"prnlev 5"<<endl;
 	fout<<"scalar wmain statistics select .not. type H* end"<<endl;
 	fout<<"GBSW sw 0.3 sgamma 0.03 dgp 1.5 GBenergy"<<endl;

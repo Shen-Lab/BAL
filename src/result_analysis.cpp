@@ -14,35 +14,53 @@ void posterior_anaylsis(double *x)
 {
 	double feature[8];
 	double label;
+	double x_start[NK];
+	double e;
+
+
+//--------------------------------------starting structure--------------------------------
+        for(int i=0; i<NK; i++) x_start[i]=0;
+
+        do_sampling(x_start,current_directory"/prepocess/ligand.pdb", current_directory"/sampling/ligand.pdb",
+                                current_directory"/prepocess/receptor.pdb", current_directory"/sampling/receptor.pdb");
+
+
+        e = scoring(feature);
+
+	FILE *printfeat=fopen(output_path"/Result/energy_features","a");	
+        for (int j=0; j<8; j++)
+                                        fprintf(printfeat, "%9.2f", feature[j]);
+        fprintf(printfeat, "%9.2f\n", e);
+
+
+        system("mkdir "output_path"/Result/start");
+        system("cp minmiz/receptor.pdb "output_path"/Result/start/");
+        system("cp minmiz/ligand.pdb "output_path"/Result/start/");
+        system("python pre_bal.py "output_path"/Result/start/receptor.pdb "output_path"/Result/start/ligand.pdb out");
+
+
 
 
 
 //---------------------------------------------------------end structure---------------------------------------------
-				
-	
+					
 	do_sampling(x,current_directory"/prepocess/ligand.pdb", current_directory"/sampling/ligand.pdb",
 				current_directory"/prepocess/receptor.pdb", current_directory"/sampling/receptor.pdb");
 	
 
 
 
-	scoring(feature);
-	system("mkdir Result/end");
-        system("cp minmiz/receptor.pdb Result/end/");
-        system("cp minmiz/ligand.pdb Result/end/");
-        system("python pre_bal.py Result/end/receptor.pdb Result/end/ligand.pdb out");
+	e = scoring(feature);
 
-//--------------------------------------starting structure--------------------------------
-	for(int i=0; i<NK; i++) x[i]=0;
+	        for (int j=0; j<8; j++)
+                                        fprintf(printfeat, "%9.2f", feature[j]);
+                             fprintf(printfeat, "%9.2f\n", e);
+	fclose(printfeat);
 
-	do_sampling(x,current_directory"/prepocess/ligand.pdb", current_directory"/sampling/ligand.pdb",
-				current_directory"/prepocess/receptor.pdb", current_directory"/sampling/receptor.pdb");
-	
+	system("mkdir "output_path"/Result/end");
+        system("cp minmiz/receptor.pdb "output_path"/Result/end/");
+        system("cp minmiz/ligand.pdb "output_path"/Result/end/");
+        system("python pre_bal.py "output_path"/Result/end/receptor.pdb "output_path"/Result/end/ligand.pdb out");
 
-	scoring(feature);
-	
-	system("mkdir Result/start");
-	system("cp minmiz/receptor.pdb Result/start/");
-	system("cp minmiz/ligand.pdb Result/start/");
-        system("python pre_bal.py Result/start/receptor.pdb Result/start/ligand.pdb out");
+
 }

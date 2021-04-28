@@ -1,7 +1,7 @@
 #ifndef configuration_H
 #define configuration_H
 
-#define protein_name "80r"
+#define protein_name "1AY7"
 #define protein_path "/scratch/user/cyppsp/project_bayesian/covid_19/ncov_80r/Input/"
 
 #define current_directory "/scratch/user/cyppsp/project_bayesian/covid_19/ncov_80r/"
@@ -60,7 +60,7 @@
 #define burning_MCMC 100000   //-----------------The number of the metropolis step
 #define pick_MCMC 1000
 #define n_sample 20				  //  how many samples are being picked at each iteration
-#define iteration 15              
+#define iteration 30              
 
 #define sample_LBFGS 10000  //----------------------------The number of points for L-BFGS 
 #define equal_precise  1E-3  //----------------------------The thereshold for equal judgement

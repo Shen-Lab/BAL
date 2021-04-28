@@ -9,6 +9,9 @@ def encoder():
 	pdb_rec = sys.argv[1]
 	pdb_lig = sys.argv[2]
 	mapping={}
+	if os.path.exists("pre_map.pickle"):
+		return
+
 	def encoder_individual(new_chain, path):
 
 		

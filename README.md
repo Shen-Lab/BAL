@@ -1,6 +1,6 @@
 # BAL
 Bayesian Active Learning for Optimization and Uncertainty Quantification with Applications in Protein Docking
-https://www.biorxiv.org/content/10.1101/537035v1.full
+https://pubs.acs.org/doi/abs/10.1021/acs.jctc.0c00476
 
 ## Dependencies:
 * C++ 4.8.5 or higher
@@ -15,7 +15,8 @@ In src/configuration.h, please change the macros as follow:
 * src_dir:  change to your current "src" path.
 * cnma_path: change to your cNMA path.
 * scoring_path: change to your 'random_forest.sav' path.
-* output_path: change to the directory where you want to output.
+* output_path: change to the directory where you want to place the 'Result' folder which contains all output files.
+* charmm_exe, charmm_para, charmm_top, charmm_setup, charmm_gbsw, pdb_crd, crd_pdb:  change paths of these macros to their corresponding paths in 'dependencies/'. 
 
 ## Add unbound proteins:
 In src/configuration.h, please change the macro 'protein_name' to your 4-letter/digit protein code. Also please change the macro 'protein_path" to the path where the unbound protein is.
@@ -35,7 +36,7 @@ In src/configuration.h, please change the macro 'protein_name' to your 4-letter/
 * b.'scores':
         The final energy (unit in Kcal/mol) of refined structures.
 
-* c.'PMI_log':
+* c.'lgAUC':
         The log of area under the posterior.
 
 * d.'cond_prob.dat':
@@ -49,17 +50,16 @@ In src/configuration.h, please change the macro 'protein_name' to your 4-letter/
 	
 ## Citation:
 ```
-@article{Cao537035,
-        author = {Cao, Yue and Shen, Yang},
-        title = {Bayesian Active Learning for Optimization and Uncertainty Quantification in Protein Docking},
-        elocation-id = {537035},
-        year = {2019},
-        doi = {10.1101/537035},
-        publisher = {Cold Spring Harbor Laboratory},
-        URL = {https://www.biorxiv.org/content/early/2019/01/31/537035},
-        eprint = {https://www.biorxiv.org/content/early/2019/01/31/537035.full.pdf},
-        journal = {bioRxiv}
-	}
+@article{cao2020bayesian,
+  title={Bayesian active learning for optimization and uncertainty quantification in protein docking},
+  author={Cao, Yue and Shen, Yang},
+  journal={Journal of chemical theory and computation},
+  volume={16},
+  number={8},
+  pages={5334--5347},
+  year={2020},
+  publisher={ACS Publications}
+}
 ```
 
 ## Contact:
